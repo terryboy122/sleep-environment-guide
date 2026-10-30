@@ -64,6 +64,7 @@ section[id]{scroll-margin-top:70px}
     <a href="#shift">輪班族</a>
     <a href="#myths">迷思破解</a>
     <a href="#faq">常見問題</a>
+    <a href="#board">留言板</a>
     <a href="#about">關於本頁</a>
   </div>
 </nav>
@@ -234,11 +235,31 @@ section[id]{scroll-margin-top:70px}
   </details>
 </section>
 
+<section class="card" id="board">
+  <h2>留言板</h2>
+  <p>有問題、想補充的睡眠環境做法，或發現頁面有錯，都可以在這裡留言。</p>
+  <form id="board-form" aria-label="留言板表單">
+    <div style="margin-bottom:12px">
+      <label for="board-name" style="display:block;margin-bottom:6px;font-weight:700">稱呼</label>
+      <input id="board-name" name="name" type="text" placeholder="例如：陳先生" style="width:100%;box-sizing:border-box;padding:12px;border:2px solid #dfe6f0;border-radius:14px;font-size:17px;background:#fff;color:#1c2739">
+    </div>
+    <div style="margin-bottom:12px">
+      <label for="board-msg" style="display:block;margin-bottom:6px;font-weight:700">留言內容</label>
+      <textarea id="board-msg" name="message" rows="5" placeholder="請寫下你的問題或補充" style="width:100%;box-sizing:border-box;padding:12px;border:2px solid #dfe6f0;border-radius:14px;font-size:17px;background:#fff;color:#1c2739"></textarea>
+    </div>
+    <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>請勿填寫<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+    <button id="board-submit" type="submit" style="background:#1a4a86;color:#fff;border:0;font-size:17px;font-weight:700;padding:12px 28px;border-radius:999px;cursor:pointer">送出留言</button>
+    <p id="board-status" style="margin:12px 0 0;color:#5a6b84"></p>
+    <p style="margin:12px 0 0;color:#5a6b84">留言只會傳給站主，僅供站主回覆使用，不會公開顯示在頁面上，也不會提供給第三方。</p>
+  </form>
+</section>
+
 <section class="card" id="about">
   <h2>關於本頁</h2>
   <p>本站是單頁資訊站，整理睡眠環境的一般檢查方向與選購重點，內容只提供一般生活資訊，不是醫療建議。</p>
   <p>選購重點只寫尺寸、材質、清洗方式等挑選方向，不寫金額，也不放任何購買連結。實際規格請以商品本身標示為準。</p>
   <p>如果你發現內容有誤，或是有想補充的一般資訊，歡迎透過站上以外的聯絡方式告訴站方，站方會再核對更新。</p>
+  <p>站主留言管理（僅供站主使用）：<a href="https://fire-safety-guide.pages.dev/admin.html">共用留言管理頁</a></p>
 </section>
 
 </main>
@@ -260,6 +281,32 @@ section[id]{scroll-margin-top:70px}
       nav.classList.remove('open');
       btn.setAttribute('aria-expanded','false');
     });
+  });
+})();
+</script>
+<script>
+(function(){
+  var form=document.getElementById('board-form');
+  if(!form) return;
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var name=document.getElementById('board-name').value.trim();
+    var msg=document.getElementById('board-msg').value.trim();
+    var hp=form.querySelector('input[name="website"]').value.trim();
+    var status=document.getElementById('board-status');
+    var btn=document.getElementById('board-submit');
+    if(!name||!msg){status.textContent='請填寫稱呼與留言內容。';return;}
+    btn.disabled=true;
+    status.textContent='傳送中…';
+    fetch('/api/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,message:msg,website:hp})})
+      .then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d};});})
+      .then(function(res){
+        if(res.ok&&res.d.ok){status.textContent='留言已送出，謝謝！';form.reset();}
+        else if(res.d&&res.d.error==='too_fast'){status.textContent='留言太頻繁，請 60 秒後再試。';}
+        else{status.textContent='送出失敗，請稍後再試。';}
+        btn.disabled=false;
+      })
+      .catch(function(){status.textContent='送出失敗，請稍後再試。';btn.disabled=false;});
   });
 })();
 </script>
