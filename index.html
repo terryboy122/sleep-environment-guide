@@ -40,6 +40,10 @@ section[id]{scroll-margin-top:70px}
 .faq summary{font-weight:700;cursor:pointer;color:#123a6d}
 .faq p{margin:8px 0 0}
 .footer{color:#5a6b84;font-size:15px;text-align:center;padding:0 20px 40px}
+.video-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px}
+.video-card{flex:0 0 78vw;max-width:300px;scroll-snap-align:start;background:#f4f8ff;border:1px solid #dfe6f0;border-radius:14px;padding:14px 16px;text-decoration:none;display:block}
+.video-card strong{display:block;color:#123a6d;line-height:1.5}
+.video-card span{display:block;color:#5a6b84;font-size:15px;margin-top:6px}
 @media(max-width:520px){
   body{font-size:16px}
   .hero{padding:36px 18px 30px}
@@ -272,30 +276,31 @@ section[id]{scroll-margin-top:70px}
 
 <section class="card" id="videos">
   <h2>影片教室</h2>
-  <p>下面這些影片都是中文教學，講遮光、噪音、溫度、枕頭、輪班這些環境做法，點開就能看。</p>
-  <ul>
-    <li><a href="https://www.youtube.com/watch?v=5qHI6y4Qisc" target="_blank" rel="noopener">Cofit x 宋晏仁醫師｜睡眠專家：休息的關鍵不在晚上，而是白天（17:21，220.8 萬觀看）</a></li>
-    <li><a href="https://www.youtube.com/watch?v=aDIxrC2QzgI" target="_blank" rel="noopener">鄭淳予醫師｜懂睡！熬夜、輪班工作人的好睡指南（7:29，17.3 萬觀看）</a></li>
-    <li><a href="https://www.youtube.com/watch?v=geU7LzxCBqQ" target="_blank" rel="noopener">壹加壹｜原來這就是睡覺專用的耳塞（5:11，17.4 萬觀看）</a></li>
-    <li><a href="https://www.youtube.com/watch?v=jbO1Z2RQfsw" target="_blank" rel="noopener">志祺七七｜半夜睡不著覺，就聽白噪音？白噪音為何能助眠（9:07，12.1 萬觀看）</a></li>
-    <li><a href="https://www.youtube.com/watch?v=rgSPGkjNjsI" target="_blank" rel="noopener">詹珞瑤物理治療師｜睡不好的元兇竟然是「脊椎」！教你挑床墊（9:25，6.3 萬觀看）</a></li>
-    <li><a href="https://www.youtube.com/watch?v=HAAU4jFHn0A" target="_blank" rel="noopener">早安健康｜挑對枕頭、床墊一夜好眠！侯鐘堡復健科醫師（10:36，2.6 萬觀看）</a></li>
-    <li><a href="https://www.youtube.com/watch?v=oEOPbJcReKY" target="_blank" rel="noopener">大愛新聞｜優質睡眠三部曲：溫度、光線、降噪</a></li>
-    <li><a href="https://www.youtube.com/watch?v=zJNcMI7ILsU" target="_blank" rel="noopener">泛科學院｜好眠教室：睡眠環境的重要原則</a></li>
-  </ul>
+  <p>下面這些影片都是中文教學，講遮光、噪音、溫度、枕頭、輪班這些環境做法，點開就能看。左右滑動可以看更多。</p>
+  <h3>精選影片</h3>
+  <div class="video-row">
+    <a class="video-card" href="https://www.youtube.com/watch?v=5qHI6y4Qisc" target="_blank" rel="noopener"><strong>Cofit x 宋晏仁醫師｜睡眠專家：休息的關鍵不在晚上，而是白天</strong><span>17:21｜220.8 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=aDIxrC2QzgI" target="_blank" rel="noopener"><strong>鄭淳予醫師｜懂睡！熬夜、輪班工作人的好睡指南</strong><span>7:29｜17.3 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=geU7LzxCBqQ" target="_blank" rel="noopener"><strong>壹加壹｜原來這就是睡覺專用的耳塞</strong><span>5:11｜17.4 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=jbO1Z2RQfsw" target="_blank" rel="noopener"><strong>志祺七七｜半夜睡不著覺，就聽白噪音？</strong><span>9:07｜12.1 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=rgSPGkjNjsI" target="_blank" rel="noopener"><strong>詹珞瑤物理治療師｜教你挑床墊</strong><span>9:25｜6.3 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=HAAU4jFHn0A" target="_blank" rel="noopener"><strong>早安健康｜挑對枕頭、床墊一夜好眠！侯鐘堡復健科醫師</strong><span>10:36｜2.6 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=oEOPbJcReKY" target="_blank" rel="noopener"><strong>大愛新聞｜優質睡眠三部曲：溫度、光線、降噪</strong><span>新聞短片</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=zJNcMI7ILsU" target="_blank" rel="noopener"><strong>泛科學院｜好眠教室：睡眠環境的重要原則</strong><span>教學短片</span></a>
+  </div>
+  <h3>補充影片</h3>
+  <div class="video-row">
+    <a class="video-card" href="https://www.youtube.com/watch?v=DDTewCV7n24" target="_blank" rel="noopener"><strong>康健雜誌｜專家教你挑！挑對枕頭是關鍵</strong><span>2:51｜1.3 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=PH7GkCaWECQ" target="_blank" rel="noopener"><strong>康健雜誌｜硬床、軟床哪個好？（脊骨神經醫學博士）</strong><span>7:40｜2.4 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=5r1GOuV_pjA" target="_blank" rel="noopener"><strong>HoHo｜教你挑選床墊：記憶棉、獨立筒、乳膠，試躺注意 6 件事</strong><span>8:24｜3.5 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=03WTpOGzGXs" target="_blank" rel="noopener"><strong>健康2.0｜物理治療師揭密「黃金睡眠」關鍵：高支撐＋高透氣床墊</strong><span>4:53｜94.6 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=ulN3fpFoCBk" target="_blank" rel="noopener"><strong>民視新聞｜床單多久換一次？專家建議頻率</strong><span>1:30</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=P8X6mblgfGc" target="_blank" rel="noopener"><strong>阿淇博士｜枕頭、棉被、床單怎麼挑？塵蟎徹底清潔指南</strong><span>16:16｜12.9 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=4q3Ta-jQLY4" target="_blank" rel="noopener"><strong>華視新聞｜棉被不曬，塵蟎與你同床共枕</strong><span>1:48｜1.9 萬觀看</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=7eh9pS4Nzhk" target="_blank" rel="noopener"><strong>健康2.0｜枕心塵蟎過敏，枕頭建議 3 個月清洗一次</strong><span>8:15</span></a>
+    <a class="video-card" href="https://www.youtube.com/watch?v=Rx_-Dx6Mv9Q" target="_blank" rel="noopener"><strong>陳璿丞醫師｜輪班自救 SOP：核心睡眠與光照</strong><span>21:18</span></a>
+  </div>
   <p>影片是其他頻道的教學內容，僅供參考；本頁的選購重點只寫挑選方向，不寫金額，也不放購買連結。</p>
-  <h3>補充影片：枕頭床墊、寢具清潔、輪班族</h3>
-  <ul>
-    <li><a href="https://www.youtube.com/watch?v=DDTewCV7n24" target="_blank" rel="noopener">康健雜誌｜專家教你挑！挑對枕頭是關鍵</a></li>
-    <li><a href="https://www.youtube.com/watch?v=PH7GkCaWECQ" target="_blank" rel="noopener">康健雜誌｜硬床、軟床哪個好？（脊骨神經醫學博士）</a></li>
-    <li><a href="https://www.youtube.com/watch?v=5r1GOuV_pjA" target="_blank" rel="noopener">HoHo｜教你挑選床墊：記憶棉、獨立筒、乳膠，試躺注意 6 件事</a></li>
-    <li><a href="https://www.youtube.com/watch?v=03WTpOGzGXs" target="_blank" rel="noopener">健康2.0｜物理治療師揭密「黃金睡眠」關鍵：高支撐＋高透氣床墊</a></li>
-    <li><a href="https://www.youtube.com/watch?v=ulN3fpFoCBk" target="_blank" rel="noopener">民視新聞｜床單多久換一次？專家建議頻率</a></li>
-    <li><a href="https://www.youtube.com/watch?v=P8X6mblgfGc" target="_blank" rel="noopener">阿淇博士｜枕頭、棉被、床單怎麼挑？塵蟎徹底清潔指南</a></li>
-    <li><a href="https://www.youtube.com/watch?v=4q3Ta-jQLY4" target="_blank" rel="noopener">華視新聞｜棉被不曬，塵蟎與你同床共枕</a></li>
-    <li><a href="https://www.youtube.com/watch?v=7eh9pS4Nzhk" target="_blank" rel="noopener">健康2.0｜枕心塵蟎過敏，枕頭建議 3 個月清洗一次</a></li>
-    <li><a href="https://www.youtube.com/watch?v=Rx_-Dx6Mv9Q" target="_blank" rel="noopener">陳璿丞醫師｜輪班自救 SOP：核心睡眠與光照</a></li>
-  </ul>
 </section>
 
 <section class="card" id="board">
